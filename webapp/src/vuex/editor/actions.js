@@ -80,10 +80,23 @@ export const addElement = ({commit, state}, data) => {
 }
 
 /**
+ * 添加纯色背景
+ */
+export const addBGColor = ({commit}, data) => {
+  console.log(data)
+  var element = new Element(data)
+  console.log(element)
+  commit(types.SET_BG_COLOR, element)
+  commit(types.SET_CUR_EDITOR_ELEMENT, null)
+}
+
+/**
  * 添加背景图片
  */
 export const addBGElement = ({commit}, data) => {
+  console.log(data)
   var element = new Element(data)
+  console.log(element)
   commit(types.SET_BG_ELEMENT, element)
   commit(types.SET_CUR_EDITOR_ELEMENT, null)
 }

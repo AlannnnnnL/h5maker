@@ -16,7 +16,8 @@ var config = require('./config')
 var fileUpload = require('express-fileupload')
 mongoose.Promise = require('bluebird')
 
-mongoose.connect(config.mongo.uri, { user: config.mongo.user, pass: config.mongo.pass })
+// mongoose.connect(config.mongo.uri, { user: config.mongo.user, pass: config.mongo.pass })
+mongoose.connect(config.mongo.uri,{ useMongoClient: true })
 mongoose.connection.on('error', function (err) {
   console.error(`MongoDB connection error: ${err}`)
   process.exit(-1);

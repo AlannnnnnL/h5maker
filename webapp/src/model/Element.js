@@ -27,5 +27,6 @@ export default class Element {
     this.fontWeight = ele.fontWeight || 'normal'
     this.color = ele.color || '#000000'
     this.zindex = ele.zindex || 1
+    this.backgroundColor = ele.backgroundColor || '#ffffff'
   }
 }

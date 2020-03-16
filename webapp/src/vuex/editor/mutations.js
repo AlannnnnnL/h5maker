@@ -9,6 +9,22 @@ const mutations = {
   [types.ADD_PIC_ELEMENT] (state, data) {
     state.editorPage.elements.push(new Element(data))
   },
+  // 设置背景颜色
+  [types.SET_BG_COLOR] (state, data) {
+    console.log('进来')
+    let haveBG = false
+    console.log(state.editorPage.elements)
+    state.editorPage.elements.findIndex((value, index, arr) => {
+      if (value.type === 'bgc') {
+        haveBG = true
+        value.backgroundColor = data.backgroundColor
+      }
+    })
+    console.log(state.editorPage.elements)
+    if (!haveBG) {
+      state.editorPage.elements.push(new Element(data))
+    }
+  },
   [types.SET_BG_ELEMENT] (state, data) {
     let haveBG = false
     state.editorPage.elements.findIndex((value, index, arr) => {

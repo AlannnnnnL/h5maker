@@ -19,12 +19,12 @@
       <ul>
         <li v-for="layer in layersNoBg">
           <div class="layer" :class="{ active: editingLayer === layer}" @click="setEditingLayer($event, layer)" @mousedown="moveLayer">
-            <span class="thumb" :style="{ backgroundImage: 'url(' + http + layer.imgSrc + ')' }"></span>{{ layer.type }}
+            <span class="thumb" :style="{ backgroundImage: 'url(' + http + layer.imgSrc + ')', backgroundColor: ''+ layer.backgroundColor +'' }"></span>{{ layer.type }}
           </div>
         </li>
       </ul>
       <div v-for="layer in layersBg" class="layer" :class="{ active: editingLayer === layer}" @click="setEditingLayer($event, layer)">
-        <span class="thumb" :style="{ backgroundImage: 'url(' + http + layer.imgSrc + ')' }"></span>{{ layer.type }}
+        <span class="thumb" :style="{ backgroundImage: 'url(' + http + layer.imgSrc + ')', backgroundColor: ''+ layer.backgroundColor +'' }"></span>{{ layer.type }}
       </div>
     </div>
     <button class="add el-icon-plus" @click="addPage"></button>

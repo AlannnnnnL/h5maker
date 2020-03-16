@@ -37,6 +37,9 @@
           </div>
           <div class="clearfix"
               v-if="panelTabState === 1">
+              <el-input
+                class="bgc-input"
+                type="color" @change="addBGC"></el-input>
             <ImgPanel  :selectedImg="addBG"/>
           </div>
         </div>
@@ -160,6 +163,10 @@
         obj.loop = ele.loop
         this.$store.dispatch('addElement', obj)
         this.element.type = 'video'
+      },
+      addBGC (e) {
+        console.log(e)
+        this.$store.dispatch('addBGColor', { type: 'bgc', backgroundColor: e })
       },
       addBG (file) {
         this.$store.dispatch('addBGElement', { type: 'bg', imgSrc: file.filePath })
@@ -369,5 +376,8 @@
         }
       }
     }
+  }
+  .bgc-input {
+    margin: 5px;
   }
 </style>
